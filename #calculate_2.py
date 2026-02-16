@@ -24,7 +24,7 @@ def backspace():
 
 def calculate():
         try:
-            expression = entry.get().replace('%', '/100')
+            expression = entry.get().replace('%', '/100').replace('×', '*').replace('÷', '/')
             result=eval(expression)
             entry.delete(0,END)
             entry.insert(0,str(result))
@@ -33,8 +33,8 @@ def calculate():
             entry.insert(0,'error')
             
 Buttons=[
-    ('C',delete),('⌫',backspace),('%',lambda:Add('%')),('/',lambda:Add('/')),
-    ('7',lambda:Add('7')),('8',lambda:Add('8')),('9',lambda:Add('9')),('*',lambda:Add('*')),
+    ('C',delete),('⌫',backspace),('%',lambda:Add('%')),('÷',lambda:Add('÷')),
+    ('7',lambda:Add('7')),('8',lambda:Add('8')),('9',lambda:Add('9')),('×',lambda:Add('×')),
     ('4',lambda:Add('4')),('5',lambda:Add('5')),('6',lambda:Add('6')),('-',lambda:Add('-')),
     ('1',lambda:Add('1')),('2',lambda:Add('2')),('3',lambda:Add('3')),('+',lambda:Add('+')),
     ('0',lambda:Add('0')),('.',lambda:Add('.')), ('=',calculate) 
@@ -48,7 +48,7 @@ for button , cmd in Buttons:
         bg_color = '#ff5555' # قرمز
     elif button == '=':
         bg_color = '#50fa7b' # سبز
-    elif button in ['/', '*', '-', '+', '%', '⌫']:
+    elif button in ['÷', '×', '-', '+', '%', '⌫']:
         bg_color = '#ffb86c' # نارنجی برای عملگرها
     else:
         bg_color = '#ffffff' # سفید شیری برای اعداد
