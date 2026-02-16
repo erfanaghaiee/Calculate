@@ -51,7 +51,7 @@ for button , cmd in Buttons:
     elif button in ['/', '*', '-', '+', '%', '⌫']:
         bg_color = '#ffb86c' # نارنجی برای عملگرها
     else:
-        bg_color = '#ffffff' # خاکستری تیره برای اعداد
+        bg_color = '#ffffff' # سفید شیری برای اعداد
     
     
     btn=Button(machin,text=button,width=5,height=2,border=8,font=('Tahoma',12),command=cmd,bg=bg_color,fg='black', relief='flat', activebackground='#6272a4')
